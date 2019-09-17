@@ -10,9 +10,17 @@ class App extends React.Component {
 
   componentDidMount() {     
     console.log('a')
+    this.setStudentData()
+  }
+
+  setStudentData() {
     fetch('https://api.github.com/users/taoliu12/events/public')
     .then(resp => resp.json())
-    .then(studentData => console.log(studentData))
+    .then(studentData => {
+      console.log(studentData)
+      // debugger
+      this.setState({username: studentData[0].actor.login})
+    })
   }
 
   render() {
@@ -20,16 +28,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          Student Progress
+          Student Progress Report
         </header>
         <div className="student-container">
           <div>
+            <p>Username: {this.state.username}</p>
             labs
           </div>
           <div>
             commits
           </div>
-    
         </div>
       </div>
     );
