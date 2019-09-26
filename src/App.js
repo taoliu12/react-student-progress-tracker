@@ -23,19 +23,21 @@ class App extends React.Component {
     })
   }
 
+  
+
   render() {
     console.log('b')
     return (
-      <div className="App">
+      <div className="App container">
         <header className="App-header">
           Student Progress Report
         </header>
-        <div className="student-container">
-          <div>
+        <div className="student-container row">
+          <div className="col-md-4">
             <p>Username: {this.state.username}</p>
             labs
           </div>
-          <div>
+          <div className="col-md-4">
             commits
           </div>
         </div>
